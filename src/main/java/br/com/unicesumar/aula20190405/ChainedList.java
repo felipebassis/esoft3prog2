@@ -6,12 +6,21 @@ import static java.util.Objects.nonNull;
 public class ChainedList<T> {
     private Element<T> first;
 
+    public ChainedList(){}
+
     public ChainedList(T first) {
         this.first = new Element<>(first);
     }
 
+    @SafeVarargs
+    public ChainedList(T... elements) {
+        for (T element: elements) {
+            add(element);
+        }
+    }
+
     public void add(T element) {
-        if (isNull(first.value)) {
+        if (isNull(first)) {
             this.first = new Element<>(element);
         } else {
             Element<T> temporary = first;

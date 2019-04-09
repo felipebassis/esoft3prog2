@@ -9,7 +9,8 @@ class ChainedListTest {
 
     @Test
     void add() {
-        ChainedList<String> chainedList = new ChainedList<>("Test");
+        ChainedList<String> chainedList = new ChainedList<>();
+        chainedList.add("Test");
         assertEquals("Test", chainedList.get(0));
 
         chainedList.add("Test2");
